@@ -1,10 +1,12 @@
 import { MdDelete } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
+import {Link} from 'react-router-dom'
 
 const CoffeeCard = ({ user }) => {
   const { name, chef, supplier, taste, category, details, photo, _id } = user;
-
+   
+  
   const DeletHandel = id => {
     Swal.fire({
       title: "Are you sure?",
@@ -56,7 +58,9 @@ const CoffeeCard = ({ user }) => {
           <div className="card-actions justify-end">
             <div className="join join-vertical space-y-2">
               <button className="btn join-item text-3xl"><FaEye /></button>
-              <button className="btn join-item">Update</button>
+              <Link to={`/update/${_id}`}>
+                <button className="btn join-item">Update</button>
+              </Link>             
               <button
                 className="btn join-item text-3xl"
                 onClick={() => DeletHandel(_id)}
